@@ -8,5 +8,5 @@ Here's the steps.
 
 * Go to the [Discord Developer Application Page](https://discord.com/developers/applications)
 * Click "New Application" like the below example.
-<img src="https://imgur.com/yrXmCxN" alt="Tutorial">
+<img src="https://i.imgur.com/yrXmCxN.png" alt="Tutorial">
 
