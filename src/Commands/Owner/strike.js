@@ -8,17 +8,17 @@ module.exports = {
             if(doc){
                 doc.strikes = doc.strikes + 1
                 const channel = await client.channels.cache.get(client.logs)
-                channel.send(client.embed("Striked!", `\`${client.users.cache.get(staff.user).username}\` has been striked by \`${message.author.username}\`.`))
+                channel.send(client.embed("Striked!", `\`${client.users.cache.get(doc.user).username}\` has been striked by \`${message.author.username}\`.`))
                 if(doc.strikes > 3 && doc.suspended == false){
                     doc.suspended = true
                     const owners = []
                     client.owners.forEach(o => {
                         owners.push(`<@${o}>`)
                     })
-                    channel.send(`${owners.join(" ")}`, {embed: client.embed("Staff member needs reviewing.", `<@${staff.user}> has gotten more than 3 strikes. (they are now suspended)`)})
+                    channel.send(`${owners.join(" ")}`, {embed: client.embed("Staff member needs reviewing.", `<@${doc.user}> has gotten more than 3 strikes. (they are now suspended)`)})
                 }
                 await doc.save()
-                message.reply(client.embed("Striked!", `You have striked \`${user.username}\` they now have ${doc.strikes}.`))
+                message.reply(client.embed("Striked!", `You have striked \`${user.username}\` they now have ${doc.strikes} strike(s).`))
             }else {
                 message.reply(client.embed("Error", "This user is not in the staff database, if you believe this is a mistake tell them to talk and it should be fixed."))
             }

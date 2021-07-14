@@ -35,16 +35,20 @@ module.exports = {
         if(!command) return;
         if(command){
             let run = true
-            if(command.category == "Owner" && !message.author.isOwner) {
+            if(command.category == "Owner" && message.author.isOwner == false) {
                 run = false
                 return;
             } 
-            if(command.category == "Staff" && !message.author.isStaff && !message.author.isOwner){
+            if(command.category == "Staff" && message.author.isStaff == false && message.author.isOwner == false){
                 run = false
                 return;
             }
-            if(message.author.isStaff && !message.author.isOwner){
-            if(staffInfo.blacklisted == true || staffInfo.suspended == true){
+            if(message.author.isStaff && message.author.isOwner == false){
+                if(staffInfo.blacklisted == true){
+                    run = false
+                    return;
+                }
+            if(staffInfo.suspended == true){
                 run = false
                 return message.reply(client.embed("Error", `Uh oh, looks like you cant use this command right now because you are currently ${staffInfo.blacklisted ? "blacklisted" : "suspended"} from the staffing system.`))
             }
@@ -52,7 +56,7 @@ module.exports = {
             
             if(command.permissions){
 command.permissions.forEach(perm => {
-                    if(!message.member.hasPermission(perm) && !message.author.isOwner) {
+                    if(!message.member.hasPermission(perm) && message.author.isOwner == false) {
                         run = false
                    return message.reply(client.embed("Missing Permissions", `You need the \`${perm.replace("_", " ")}\` permission to use this command.`)) }}
                 )

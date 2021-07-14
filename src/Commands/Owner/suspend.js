@@ -7,9 +7,8 @@ module.exports = {
             const doc = await client.models.staff.findOne({user: user.id})
             if(doc){
                 doc.suspended = true
-                const channel = await client.channels.cache.get(client.logs)
-               channel.send(client.embed("Suspended", `\`${user.username}\` was suspended by \`${message.author.username}\`.`))
                 await doc.save()
+               client.log(client.embed("Suspended", `\`${user.username}\` was suspended by \`${message.author.username}\`.`))
                 message.reply(client.embed("Suspended!", `You have suspended \`${user.username}\`.`))
             }else {
                 message.reply(client.embed("Error", "This user is not in the staff database, if you believe this is a mistake tell them to talk and it should be fixed."))
