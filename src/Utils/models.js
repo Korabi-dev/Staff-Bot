@@ -23,3 +23,16 @@ s = Schema({
 })
 
 exports.time = model("time", s)
+
+s = Schema({
+    user: String,
+    warnings: []
+})
+
+exports.warns = model("warns", s)
+
+s = Schema({
+    current: Number,
+    active: Boolean
+})
+exports.warnsid = model("warnsid", s)
