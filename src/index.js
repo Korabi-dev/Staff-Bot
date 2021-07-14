@@ -24,12 +24,12 @@ Array.prototype.random = function () {
   }
 
 client.maincolor = "#5440cd"
-client.embed = function(t, d , f)
+client.embed = function(t, d)
  {
 const embed = new discord.MessageEmbed().setColor(client.maincolor);
 if(t){embed.title = t};
 if(d){embed.description = d};
-if(f){embed.footer = f};
+embed.setFooter("Made with 💖 By Korabi and JS 💛")
 return embed;
 };
 client.loadCommands = function(){
