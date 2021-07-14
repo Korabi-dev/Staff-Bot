@@ -14,7 +14,7 @@ module.exports = {
         if(active.length > 0){
     message.reply(client.embed("Staff Activity", active.join("\n")))
     } else{
-        message.reply(client.embed("Error", "No qualified staff found."))//e
+        message.reply(client.embed("Error", "No qualified staff found."))
     }
 }
 }
