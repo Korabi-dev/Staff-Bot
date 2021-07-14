@@ -1,5 +1,6 @@
 ## Staff Bot
 Hey there! This project is dedicated to help with managing staff members on your servers, it also has some basic moderation commands.
+__If you want more projects like this [Visit my Github page](https://github.com/Korabi-dev/)__
 
 ## Deployment
 Okay, you may be asking, how do I start the bot?
@@ -38,10 +39,10 @@ __Keep this in a notepad as we will need it later.__
 * In the ".env" file, put the information as needed.
 
 ```env
-token=THE_BOT_TOKEN_YOU_COPIED_EARLIER
+token=YOUR_BOT_TOKEN
 mongoose=MONGO_DB_SERVER
 prefix=YOUR_PREFIX
-staffrole=THE_STAFF_ROLE
+staffrole=THE_STAFF_ROLE_ID
 checkin=CHECKIN_CHANNEL_ID
 logs=LOGS_CHANNEL_ID
 main=YOUR_SERVER_ID
