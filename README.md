@@ -1,6 +1,7 @@
 ## Staff Bot
 Hey there! This project is dedicated to help with managing staff members on your servers, it also has some basic moderation commands.
-__If you want more projects like this [Visit my Github page](https://github.com/Korabi-dev/)__
+
+_if you want more projects like this [Visit my Github page](https://github.com/Korabi-dev/)_
 
 ## Deployment
 Okay, you may be asking, how do I start the bot?
@@ -29,8 +30,8 @@ Here's the steps.
 * Click "Copy", like the below example.
 <img src="https://i.imgur.com/tG6jt3f.png" alt="Tutorial5">
 
-__Keep this in a notepad as we will need it later.__
-**Please make sure you do not leak this token, doing so will give someone access to your bot**
+_Keep this in a notepad as we will need it later._
+*Please make sure you do not leak this token, doing so will give someone access to your bot*
 
 * [Get a mongodb cluster](https://www.youtube.com/watch?v=94g7fITrhrM) (Get the link part of this video and save it for later, it will be referred to as "MONGO_DB_SERVER", ty recon for the great vid <3)
 * [Download NODE.JS](https://nodejs.org/en/download/)
@@ -56,4 +57,4 @@ cd YOUR_BOT_FOLDER_PATH && node .
  
  **If all goes well your bot should be up and running, Congratulations!**
 
- __If anything goes wrong [join one of my discord servers](https://discord.gg/WaT5HVDySg) and ping me, ill gladly help!__
+ _If anything goes wrong [join one of my discord servers](https://discord.gg/WaT5HVDySg) and ping me, ill gladly help!_
