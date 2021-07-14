@@ -24,12 +24,12 @@ Array.prototype.random = function () {
   }
 
 client.maincolor = "#5440cd"
-client.embed = function(t, d)
+client.embed = function(t, d, f)
  {
 const embed = new discord.MessageEmbed().setColor(client.maincolor);
 if(t){embed.title = t};
 if(d){embed.description = d};
-embed.setFooter("Made with 💖 By Korabi and JS 💛")
+if(f) {embed.setFooter(f)}
 return embed;
 };
 client.loadCommands = function(){
@@ -104,16 +104,15 @@ docs.forEach(async(staff) => {
         r = r / 2
         staff.active = staff.active + 1
         staff.inactive = 0
-        active.push(`<@${staff.user}>`)
+        active.push(`:heart: <@${staff.user}>`)
     } else if(staff.messages.today < staff.messages.random) {
         staff.inactive = staff.inactive + 1
         staff.active = 0
-        inactive.push(`<@${staff.user}>`)
+        inactive.push(`:frowning:  <@${staff.user}>`)
         if(staff.inactive > 3 && !client.owners.includes(doc.user)){
             staff.strikes = staff.strikes + 1
             staff.inactive = 0 
-            const channel = await client.channels.cache.get(client.logs)
-            channel.send(client.embed("Striked!", `\`${client.users.cache.get(staff.user).tag}\` has been striked for being inactive for more than 3 days in a row.`))
+            client.log(client.embed("Striked!", `\`${client.users.cache.get(staff.user).tag}\` has been striked for being inactive for more than 3 days in a row.`))
             if(staff.strikes > 3 && doc.suspended == false && !client.owners.includes(doc.user)){
                 staff.suspended = true
                 const owners = []
@@ -123,10 +122,10 @@ docs.forEach(async(staff) => {
                 channel.send(`${owners.join(" ")}`, {embed: client.embed("Staff member needs reviewing.", `<@${staff.user}> has gotten more than 3 strikes. They are now suspended.`)})
             }
         }
-        staff.messages.today = 0
+        }
+    staff.messages.today = 0
         staff.messages.random = r
         await staff.save()
-    }
 })
 const channel = client.channels.cache.get(client.checkin)
 await channel.messages.fetch().then(msgs =>{
@@ -137,12 +136,12 @@ msgs.forEach(m => {
 })
 })
 if(active.length > 0){
-    channel.send(client.embed("Check In!", `Staff Who Were Active Today:\n\n${active.join(" :heart:\n")}.`).setColor("GREEN"))
+    channel.send(client.embed("Check In!", `Staff Who Were Active Today:\n${active.join("\n")}`).setColor("GREEN"))
 } else {
     channel.send(client.embed(`Check In!`, `No staff Members Were Active Today :frowning:`))
 }
 if(inactive.length > 0){
-    channel.send(client.embed("Check In!", `Staff Who Were In-Active Today:\n\n${inactive.join(" :frowning:\n")}.`).setColor("RED"))
+    channel.send(client.embed("Check In!", `Staff Who Were In-Active Today:\n${inactive.join("\n")}`).setColor("RED"))
 } else {
     channel.send(client.embed(`Check In!`, `No staff Members Were In-Active Today :tada:`))
 }
@@ -156,7 +155,7 @@ await doc.save()
     })
     await newtime.save()
 }
-}, 120000);
+}, 30000);
 
 client.staff = function generateSchema(id){
     return {
