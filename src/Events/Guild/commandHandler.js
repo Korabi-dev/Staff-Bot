@@ -71,7 +71,7 @@ command.permissions.forEach(perm => {
             }
 
             if(run == true){
-                command.run(client, message, args)
+            command.run(client, message, args)
             }
 
         }
