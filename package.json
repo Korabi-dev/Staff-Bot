@@ -16,5 +16,6 @@
     "dotenv": "^10.0.0",
     "mathjs": "^9.4.4",
     "mongoose": "^5.13.2"
-  }
+  },
+  "repository": "https://github.com/Korabi-dev/Staff-Bot.git"
 }
