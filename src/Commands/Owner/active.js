@@ -4,7 +4,6 @@ module.exports = {
         docs = docs.sort((a,b) => b.messages.today - a.messages.today)
         const active = []
         docs.forEach(async(staff) => {
-            if(client.owners.includes(staff.user)) return;
             if(staff.messages.today >= staff.messages.random){
                 active.push(`:heart: \`${client.users.cache.get(staff.user).username || "Unknown"}\` - ${staff.messages.today}/${staff.messages.random} messages today.`)
             } else {
