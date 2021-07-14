@@ -6,7 +6,7 @@ Okay, you may be asking, how do I start the bot?
 
 Here's the steps.
 
-** Go to the [Discord Developer Application Page](https://discord.com/developers/applications)
-** Click "New Application" like the below example.
+* Go to the [Discord Developer Application Page](https://discord.com/developers/applications)
+* Click "New Application" like the below example.
 <img src="https://imgur.com/yrXmCxN" alt="Tutorial">
 
