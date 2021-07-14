@@ -2,7 +2,6 @@ module.exports = {
     name: "guildMemberUpdate",
     run: async(old, n, client) => {
         if(n.roles.cache.get(client.staffrole)){
-         if(client.owners.includes(n.id)) return;
          if(n.user.bot)return;
             const doc = await client.models.staff.findOne({user: n.id})
             if(doc){

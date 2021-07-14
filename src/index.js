@@ -99,7 +99,6 @@ const docs = await client.models.staff.find({onleave: false, suspended: false, b
 const active = [];
 const inactive = [];
 docs.forEach(async(staff) => {
-    if(client.owners.includes(staff.user)) return;
     let r = client.random()
     if(staff.messages.today >= staff.messages.random){
         r = r / 2
@@ -110,12 +109,12 @@ docs.forEach(async(staff) => {
         staff.inactive = staff.inactive + 1
         staff.active = 0
         inactive.push(`<@${staff.user}>`)
-        if(staff.inactive > 3){
+        if(staff.inactive > 3 && !client.owners.includes(doc.user)){
             staff.strikes = staff.strikes + 1
             staff.inactive = 0 
             const channel = await client.channels.cache.get(client.logs)
             channel.send(client.embed("Striked!", `\`${client.users.cache.get(staff.user).tag}\` has been striked for being inactive for more than 3 days in a row.`))
-            if(staff.strikes > 3 && doc.suspended == false){
+            if(staff.strikes > 3 && doc.suspended == false && !client.owners.includes(doc.user)){
                 staff.suspended = true
                 const owners = []
                 client.owners.forEach(o => {

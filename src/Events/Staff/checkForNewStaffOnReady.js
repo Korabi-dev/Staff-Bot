@@ -4,7 +4,6 @@ module.exports = {
     run: async(client) => {
         const guild = client.guilds.cache.get(client.mainserver)
         guild.members.cache.forEach(async(member) => {
-            if(client.owners.includes(member.id)) return;
             const user = client.users.cache.get(member.id)
             if(!user) console.warn(`Could not find member ${member.user.tag} as a user.`)
             if(user.bot) return;

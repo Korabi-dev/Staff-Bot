@@ -2,7 +2,7 @@ const { random } = require("mathjs")
 module.exports = {
     name: "message", 
     run: async(message, client) => {
-        if(message.author.bot || message.content.toLowerCase().startsWith(process.env.prefix) || message.content.length < 2 || client.owners.includes(message.author.id)) return;
+        if(message.author.bot || message.content.toLowerCase().startsWith(process.env.prefix) || message.content.length < 2) return;
         const doc = await client.models.staff.findOne({user: message.author.id})
         if(doc){
             if(doc.onleave == false && doc.suspended == false){
