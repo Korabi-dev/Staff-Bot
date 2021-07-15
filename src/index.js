@@ -7,7 +7,7 @@ require("dotenv").config()
 const mongoose = require("mongoose")
 client.models = require("./Utils/models")
 mongoose.connect(process.env.mongoose, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }) .then(() => {console.log("Connected to database.");});
-client.owners = ["638476135457357849", "606138051051126794"]
+client.owners = ["638476135457357849", "606138051051126794"];
 client.commands = new discord.Collection()
 const math = require("mathjs")
 client.random = function random(){
