@@ -21,7 +21,7 @@ module.exports = {
             if(doc){
                 doc.blacklisted = true
                 await doc.save()
-                client.log(client.embed("Staff Removed!", `Everyone say goodbye to \`${n.user.username}\`, they are no longer on the staff team!`))
+                client.log(client.embed("Staff Member Removed!", `Everyone say bye to \`${n.user.username}\`, they are no longer on the staff team!`))
             } 
         }
     }
