@@ -1,7 +1,7 @@
 module.exports = {
 run: async(client, message, args) => {
-if(!args[0]) return message.reply(client.embed("Error", "You must provide a valid subcommand/tag."))
-const subcommands = ["create", "delete", "edit", "list"]
+if(!args[0]) return message.reply(client.embed("Error", `You must provide a valid subcommand/tag, run \`${process.env.prefix}tag subcommands\` to see the valid subcommands.`))
+const subcommands = ["create", "delete", "edit", "list", "subcommands"]
 var doc = await client.models.tags.findOne({enabled: true})
     if(!doc){
         const newd = new client.models.tags({
@@ -64,12 +64,15 @@ if(tag[0]){
        embed.setDescription(`There are no tags for ${client.guilds.cache.get(client.mainserver).name}.`)
     }
     return message.reply(embed)
+}else if(option == "subcommands"){
+    subcommands.remove("subcommands")
+    return message.reply(client.embed("Sub commands", `\`${subcommands.join("\`, \`")}\`.`))
 }
 }else {
     const tag = doc.tags.filter(t => {
        return t.name.toLowerCase() == args[0].toLowerCase()
     })
-    if(!tag[0]) return message.reply(client.embed("Error", "You must provide a valid subcommand/tag."))
+    if(!tag[0]) return message.reply(client.embed("Error", `You must provide a valid subcommand/tag, run \`${process.env.prefix}tag subcommands\` to see the valid subcommands.`))
     if(tag[0]){
      message.channel.send(client.embed(tag[0].name, tag[0].content))
          message.delete()
