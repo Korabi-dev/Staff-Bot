@@ -36,3 +36,10 @@ s = Schema({
     active: Boolean
 })
 exports.warnsid = model("warnsid", s)
+
+
+s = Schema({
+    tags: Array, 
+    enabled: Boolean
+})
+exports.tags = model("tags", s)
