@@ -4,12 +4,12 @@ module.exports = {
             if(!user) return message.reply(client.embed("Error", "You must mention a user to unstrike."))
             const doc = await client.models.staff.findOne({user: user.id})
             if(doc){
-                if(doc.strikes < 1){
+                if(doc.strikes > 0){
                 doc.strikes = doc.strikes - 1
                 const channel = await client.channels.cache.get(client.logs)
-                channel.send(client.embed("Un-Striked!", `\`${client.users.cache.get(staff.user).username}\` has been un-striked by \`${message.author.username}\`.`))
+                channel.send(client.embed("Un-Striked!", `\`${client.users.cache.get(doc.user).username}\` has been un-striked by \`${message.author.username}\`.`))
                 await doc.save()
-                message.reply(client.embed("Un-Striked!", `You have un-striked \`${user.username}\` they now have ${doc.strikes}.`))
+                message.reply(client.embed("Un-Striked!", `You have un-striked \`${user.username}\` they now have ${doc.strikes} strike(s).`))
                 } else {
                     message.reply(client.embed("Error", "This staff member has 0 strikes."))
                 }
