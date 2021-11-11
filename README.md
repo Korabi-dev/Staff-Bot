@@ -57,4 +57,4 @@ cd YOUR_BOT_FOLDER_PATH && node .
  
  **If all goes well your bot should be up and running, Congratulations!**
 
- _If anything goes wrong [join one of my discord servers](https://discord.gg/WaT5HVDySg) and ping me, ill gladly help!_
+ _If anything goes wrong just friend me on discord or make an issue, ill gladly help!_
