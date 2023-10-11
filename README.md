@@ -1,3 +1,4 @@
+# THIS BOT WAS MADE BY korabi.dev (638476135457357849) on discord, anyone else claiming they're my alt trying to sell it is scamming you
 ## Staff Bot
 Hey there! This project is dedicated to help with managing staff members on your servers, it also has some basic moderation commands.
 
